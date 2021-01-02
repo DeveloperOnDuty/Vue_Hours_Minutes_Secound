@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueFolder</title>
+</head>
+<body>
+    <div id="marina-app">
+        <h1>Welcme to Vue app</h1>
+        <p>welcome {{ name }} nice to meet you</p>
+        <label for="">Hours</label>
+        <input type="text" name="eg" id="eg" v-model="hours">
+        <label for="">Minutes</label>
+        <input type="text" name="mins" id="usd" v-model="min">
+        <label for="">Second</label>
+        <input type="text" name="sec" id="sec" v-model="sec">
+
+        <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#marina-app',
+            data: {
+                name: 'Marina',
+                hours: 0,
+                min: 0,
+                sec: 0
+            },
+            methods: {
+            },
+            computed:{
+            },
+            watch: {
+                hours: function (v){
+                    this.min= v*60;
+                    console.log('run hours');
+                },
+                min: function (v){
+                    this.hours= v/60;
+                    this.sec = v*60;
+                    console.log('run mins');
+                },
+                sec: function (v){
+                    this.min= v/60;
+                    console.log('run sec');
+                },
+
+            }
+        })
+    </script>
+</body>
+</html>
